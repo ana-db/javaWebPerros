@@ -1,7 +1,10 @@
+<%@include file="includes/header.jsp" %>
+<%@include file="includes/navigation.jsp" %>
+
 <form action="login" method="post"> 
 	<!-- nombre usuario -->
-	<label for="contrasena">Nombre:</label> 
-	<input type="text" name="usuario" placeholder="Nombre ususario" required><br>
+	<label for="nombre">Nombre:</label> 
+	<input type="text" name="nombre" placeholder="Nombre ususario" required><br>
 	
 	<!-- contraseña -->
 	<label for="contrasena">Contraseña:</label> 
@@ -13,3 +16,5 @@
 	<input type="submit" value="Acceder">
 
 </form>
+
+<%@include file="includes/footer.jsp" %>

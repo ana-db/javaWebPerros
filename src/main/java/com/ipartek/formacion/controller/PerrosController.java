@@ -23,7 +23,6 @@ public class PerrosController extends HttpServlet {
     private ArrayList<Perro> perros = new ArrayList<Perro>();
     
    
-	
 
 	public PerrosController() {
 		super();
@@ -51,9 +50,7 @@ public class PerrosController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//recibir datos del form
-		
 		String nombre = request.getParameter("nombre");
-		
 				
 		//crear perro
 		Perro p = new Perro();

@@ -8,12 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ipartek.formacion.model.pojo.Usuario;
+
 /**
  * Servlet implementation class LoginController
  */
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String NOMBRE_USUARIO = "admin";
+	public static final String PASSWORD_USUARIO = "admin";
+	public static final String VISTA = "index.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,21 +43,23 @@ public class LoginController extends HttpServlet {
 		//1. recibir parámetros:
 		String nombre = request.getParameter("usuario");
 		String contrasena = request.getParameter("contrasena");
+		String idioma = request.getParameter("idioma");
+		String recuerdame = request.getParameter("recuerdame");
 		
-		String vista="";
-		
+				
 		//2. lógica de negocio:
+		if (NOMBRE_USUARIO.equalsIgnoreCase(nombre) & PASSWORD_USUARIO.equalsIgnoreCase(contrasena)) {
 			
-		//recuperar sesión del usuario == browser
-		HttpSession session = request.getSession();
-		session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
-		session.setMaxInactiveInterval(60); //5 seg (60*5*24*7) -  -1 nunca caduca
-	
-		//request.getRequestDispatcher("login.jsp").forward(request, response);
-		vista = "login.jsp";
+			//recuperar sesión del usuario == browser
+			HttpSession session = request.getSession();
+			session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
+			session.setAttribute("idiomaLogeado", idioma);
+			session.setMaxInactiveInterval(60); //5 seg (60*5*24*7) -  -1 nunca caduca
+			
+		}
 		
 		//ir a JSP:
-		request.getRequestDispatcher(vista).forward(request, response);
+		request.getRequestDispatcher(VISTA).forward(request, response);
 	}
 
 }
