@@ -31,9 +31,10 @@ formulario
 
 <form action="perros" method="post">
 	
-	<input name="nombre" placeholder="nombre del bicho" required>	
+	<input name="nombre" placeholder="Nombre del perro" required>
+		
 	
-	<input type="submit" value="que vaaaaaaaaa">
+	<input type="submit" value="Registrar">
 </form>
 
 
