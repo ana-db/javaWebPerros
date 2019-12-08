@@ -9,11 +9,10 @@
 	        <div class="collapse navbar-collapse" id="navbarDropdown">
 	            <ul class="navbar-nav mr-auto">
 	            <li class="nav-item">
-	                <a class="nav-link" href="perros">CRUD Perros<span class="sr-only">(current)</span></a>
-	            
+	                <a class="nav-link" href="login.jsp">Login<span class="sr-only">(current)</span></a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="html/formulario.html">Formulario registro<span class="sr-only">(current)</span></a>
+	                <a class="nav-link" href="perros">CRUD Perros<span class="sr-only">(current)</span></a>
 	            </li>
 	            </ul>
 	        </div> <!-- cierre collapse navbar-collapse -->

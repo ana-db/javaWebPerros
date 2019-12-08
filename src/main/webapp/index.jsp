@@ -22,7 +22,7 @@
 <h1 class="my-3 text-center text-info">Bienvenido</h1>
 
 
-<img class="responsive" src="images/bg-index-image" alt="bg-index-image">
+<img class="responsive" src="images/bg-index-image.jpg" alt="bg-index-image">
 	
 
 
