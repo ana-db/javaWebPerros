@@ -10,16 +10,7 @@
 </style>
 
 
-<%
-	
-	out.print("<h1>Soy index.jsp</h1>");
-
-%>
-
-<a href="perros">CRUD Perros</a>
-
-
-<h1 class="my-3 text-center text-info">Bienvenido</h1>
+<h1 class="my-3 text-center text-info">Java Web Perros</h1>
 
 
 <img class="responsive" src="images/bg-index-image.jpg" alt="bg-index-image">
