@@ -83,3 +83,28 @@ ul, ol {
 	font-size: 1.5em;
     text-decoration: none; /* quita la línea de subrayado del link */
 }
+
+
+
+
+
+/* 8- media-query
+************************************/
+
+.boton-top { 
+	display: none;
+}
+
+
+/* móvil */
+@media screen and (max-width: 425px) { /* breakpoint */
+	
+	.boton-top{
+		display: inline;
+	}
+}
+
+.responsive {
+	width: 100%;
+	height: auto;
+}
