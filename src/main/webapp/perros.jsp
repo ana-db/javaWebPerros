@@ -28,39 +28,40 @@ listado
 
 
 
-<h2 class="my-3 text-left text-info">Tabla</h1>
+<h2 class="my-3 text-center text-info">Tabla</h1>
 
-<div class="row">
+<div class="row justify-content-center align-items-center">
 	<div class="col">
-		<table class="table table-responsive table-striped">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Nombre</th>
-					<th>Foto</th>
-					<th>Modificar datos</th>
-					<th>Adoptar</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<%
-					for ( Perro p :  perros ){
-						int id = (int)p.getId();
-				%>
-				<tr>
-					<td><%=p.getId() %></td>
-					<td><%=p.getNombre() %></td>
-					<td><img class="foto-perfil-perro" src="<%=p.getFoto()%>"></td>
-					<td><a href="perros?modificar=<%=p.getId()%>">Modificar datos</a></td>
-					<td><a href="perros?eliminar=<%=p.getId()%>">Adoptar</a></td>
-				<%
-					}
-				%>
-			</tbody>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover" width="40%">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Foto</th>
+						<th>Modificar datos</th>
+						<th>Adoptar</th>
+					</tr>
+				</thead>
 				
-		</table> <!-- fin tabla -->
-			
+				<tbody>
+					<%
+						for ( Perro p :  perros ){
+							int id = (int)p.getId();
+					%>
+					<tr>
+						<td><%=p.getId() %></td>
+						<td><%=p.getNombre() %></td>
+						<td><img class="foto-perfil-perro" src="<%=p.getFoto()%>"></td>
+						<td><a href="perros?modificar=<%=p.getId()%>">Modificar datos</a></td>
+						<td><a href="perros?adoptar=<%=p.getId()%>">Adoptar</a></td>
+					<%
+						}
+					%>
+				</tbody>
+					
+			</table> <!-- fin tabla -->
+		</div> <!-- fin class="table-responsive" -->
 	</div> <!-- fin class="col" -->
 </div> <!-- fin class="row" -->
 
@@ -70,15 +71,34 @@ listado
 
 <hr>
 
-<h2 class="my-3 text-left text-info">Formulario</h1>
+<h2 class="my-3 text-center text-info">Formulario</h1>
 
-<form action="perros" method="post">
+<div class="row justify-content-center align-items-center"> <!-- para centrar el fomulario necesitamos que esté dentro de las clases row y col -->
+	<div class="col-6">
+	    
+	    <!-- formulario registro -->
+		<form action="perros" method="post">
+			<!-- nombre del perro -->
+			<div class="form-group">
+			    <label for="nombre">Nombre</label>
+			    <input type="text" class="form-control" id="nombre" autofocus required pattern="[a-zA-Z]{1,50}" placeholder="Nombre del perro">
+			</div>
+			
+			<div class="form-group">
+			    <label for="foto">Foto del perro</label>
+			    <input type="text" class="form-control" id="foto" required placeholder="Foto del perro">
+			</div>
 	
-	<input name="nombre" placeholder="Nombre del perro" required>
+    
+	
+			<input type="submit" class="btn btn-info" value="Registrar">
+			<hr>
 		
+		</form>
 	
-	<input type="submit" value="Registrar">
-</form>
+	</div> <!-- fin class="col" -->
+</div> <!-- fin class="row" -->	
 
+<a class="boton-top bg-danger" href="index.jsp#top">^</a>
 
 <%@include file="includes/footer.jsp" %>
