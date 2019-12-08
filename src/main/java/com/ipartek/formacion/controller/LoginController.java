@@ -1,6 +1,8 @@
 package com.ipartek.formacion.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ipartek.formacion.model.pojo.Perro;
 import com.ipartek.formacion.model.pojo.Usuario;
 
 /**
@@ -16,9 +19,11 @@ import com.ipartek.formacion.model.pojo.Usuario;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	public static final String NOMBRE_USUARIO = "admin";
 	public static final String PASSWORD_USUARIO = "admin";
-	public static final String VISTA = "index.jsp";
+	
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,6 +31,10 @@ public class LoginController extends HttpServlet {
     public LoginController() {
         super();
         // TODO Auto-generated constructor stub
+        usuarios.add( new Usuario(1, "pepe", "123456", "https://github.com/pepe", "https://picsum.photos/") );
+        usuarios.add( new Usuario(2, "pepa", "654321", "https://github.com/pepa", "https://picsum.photos/") );
+        usuarios.add( new Usuario(3, "admin", "admin", "https://github.com/admin", "https://picsum.photos/") );
+
     }
 
 	/**
@@ -40,26 +49,32 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String vista ="";
+		
 		//1. recibir parámetros:
 		String nombre = request.getParameter("usuario");
 		String contrasena = request.getParameter("contrasena");
-		String idioma = request.getParameter("idioma");
-		String recuerdame = request.getParameter("recuerdame");
-		
+				
 				
 		//2. lógica de negocio:
-		if (NOMBRE_USUARIO.equalsIgnoreCase(nombre) & PASSWORD_USUARIO.equalsIgnoreCase(contrasena)) {
-			
-			//recuperar sesión del usuario == browser
-			HttpSession session = request.getSession();
-			session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
-			session.setAttribute("idiomaLogeado", idioma);
-			session.setMaxInactiveInterval(60); //5 seg (60*5*24*7) -  -1 nunca caduca
-			
+		for (Usuario usuario : usuarios) {
+			if (usuario.getNombre().equalsIgnoreCase(nombre) & usuario.getPassword().equalsIgnoreCase(contrasena)) {
+				//recuperar sesión del usuario == browser
+				HttpSession session = request.getSession();
+				session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
+				session.setMaxInactiveInterval(60); //5 seg (60*5*24*7) -  -1 nunca caduca
+				vista = "perros";
+			}
+			else {
+				vista = "index.jsp";
+			}
 		}
 		
+		
 		//ir a JSP:
-		request.getRequestDispatcher(VISTA).forward(request, response);
+		//request.getRequestDispatcher("index.jsp").forward(request, response);
+		response.sendRedirect(vista); //así evitamos que en la url aparezca la web que envía la response
 	}
 
 }

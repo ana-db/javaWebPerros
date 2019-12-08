@@ -39,8 +39,10 @@ listado
 						<th>Id</th>
 						<th>Nombre</th>
 						<th>Foto</th>
+						<!-- 
 						<th>Modificar datos</th>
 						<th>Adoptar</th>
+						-->
 					</tr>
 				</thead>
 				
@@ -50,11 +52,13 @@ listado
 							int id = (int)p.getId();
 					%>
 					<tr>
-						<td><%=p.getId() %></td>
-						<td><%=p.getNombre() %></td>
+						<td><%=p.getId()%></td>
+						<td><%=p.getNombre()%></td>
 						<td><img class="foto-perfil-perro" src="<%=p.getFoto()%>"></td>
-						<td><a href="perros?modificar=<%=p.getId()%>">Modificar datos</a></td>
-						<td><a href="perros?adoptar=<%=p.getId()%>">Adoptar</a></td>
+						<!-- 
+							<td><a href="perros?modificar=p.getId()">Modificar datos</a></td>
+							<td><a href="perros?adoptar=p.getId()">Adoptar</a></td>
+						 -->
 					<%
 						}
 					%>

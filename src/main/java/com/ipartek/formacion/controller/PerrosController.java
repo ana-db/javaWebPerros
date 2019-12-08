@@ -49,14 +49,16 @@ public class PerrosController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//recibir datos del form
+		//recibir datos del formulario
 		String nombre = request.getParameter("nombre");
+		String foto = request.getParameter("foto");
 				
-		//crear perro
+		//crear registro para un nuevo perro
 		Perro p = new Perro();
 		p.setNombre(nombre);
+		p.setFoto(foto);
 		
-		//guardar en lista
+		//guardar en la lista
 		perros.add(p);
 		
 		//listar perros
