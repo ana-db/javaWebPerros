@@ -9,7 +9,7 @@
                         <!-- flex-sm-row> los pasamos a filas cuando el dispositivo sea peque;o -->
                         <!-- justify-content-between> para justificar el contenido y que ocupe todo el ancho de la pantalla -->
                         <li><a href="index.html">Login</a></li>
-                        <li><a href="html/tabla.html">Tabla</a></li>
+                        <li><a href="perros">CRUD perros</a></li>
                         <li><a href="html/formulario.html">Formulario registro</a></li>
                     </ul>
                 </nav>
