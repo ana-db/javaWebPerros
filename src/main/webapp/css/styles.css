@@ -20,7 +20,7 @@ main{
     min-height: 70vh; /* damos una altura mínima para que el pie no aparezca pegado al main y se sitúe al final de la pantalla */
 }
 
-/* FOOTER */
+/* footer */
 footer {
     min-height: 10vh;
 }
@@ -63,6 +63,17 @@ ul, ol {
     right: 40px; /* 2. creamos el ancla desde abajo (bottom: 10px) y drcha (right: 40px) y luego lo vamos moviendo hasta donde queremos dando valores a right y bottom */
     bottom: 25px; 
 }
+
+.bg-login-image {
+	/* background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800"); */
+	background: url("https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80");
+	background-position: right;
+	background-size: cover;
+ }
+ 
+ .foto-perfil-perro {
+ 	width: 20%;
+ }
 
 
 /* 7- custom 
