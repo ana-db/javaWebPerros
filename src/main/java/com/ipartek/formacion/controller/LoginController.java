@@ -59,7 +59,7 @@ public class LoginController extends HttpServlet {
 				
 		//2. lógica de negocio:
 		for (Usuario usuario : usuarios) {
-			if (usuario.getNombre().equalsIgnoreCase(nombre) & usuario.getPassword().equalsIgnoreCase(contrasena)) {
+			if (usuario.getNombre().equalsIgnoreCase(nombre) && usuario.getPassword().equalsIgnoreCase(contrasena)) {
 				//recuperar sesión del usuario == browser
 				HttpSession session = request.getSession();
 				session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
