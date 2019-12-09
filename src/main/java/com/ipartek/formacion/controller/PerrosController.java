@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.ipartek.formacion.model.pojo.Perro;
 
 /**
@@ -20,6 +22,7 @@ public class PerrosController extends HttpServlet {
 	
 	
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOG = Logger.getLogger(PerrosController.class);
 	
     private ArrayList<Perro> perros = new ArrayList<Perro>();
     
@@ -39,7 +42,7 @@ public class PerrosController extends HttpServlet {
 	//ciclo de vida de un servlet: init, destroy y service:
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		//se ejecuta la 1º vez que se llama a este servlet y nunca más
+		LOG.trace("se ejecuta la 1º vez que se llama a este servlet y nunca más");
 		super.init(config);
 		
 		//creamos perros desde init en lugar de usar el constructor:
@@ -53,7 +56,7 @@ public class PerrosController extends HttpServlet {
 	
 	@Override
 	public void destroy() {
-		//se ejecuta sólo 1 vez cuando se para el servidor de aplicaciones
+		LOG.trace("se ejecuta sólo 1 vez cuando se para el servidor de aplicaciones");
 		super.destroy();
 		perros = null;
 	}
@@ -61,10 +64,10 @@ public class PerrosController extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//se ejecuta antes del doGet o doPost
+		LOG.trace("se ejecuta antes del doGet o doPost");
 		super.service(request, response); //ejecuta doGet o doPost
 		
-		//se ejecuta después del doGet o doPost
+		LOG.trace("se ejecuta después del doGet o doPost");
 		request.setAttribute("perros", perros);
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
 	}
@@ -76,8 +79,11 @@ public class PerrosController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//listar perros
+		/*
 		request.setAttribute("perros", perros);
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
+		*/
+		LOG.trace("doGet");
 	}
 
 	/**
