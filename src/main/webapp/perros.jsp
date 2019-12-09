@@ -48,10 +48,8 @@
 						<th>Id</th>
 						<th>Nombre</th>
 						<th>Foto</th>
-						<!-- 
-						<th>Modificar datos</th>
 						<th>Adoptar</th>
-						-->
+						<th>Modificar</th>
 					</tr>
 				</thead>
 				
@@ -64,6 +62,8 @@
 						<td><%=p.getId()%></td>
 						<td><%=p.getNombre()%></td>
 						<td><img class="foto-perfil-perro" src="<%=p.getFoto()%>"></td>
+						<td><a href="perros?id=<%=p.getId()%>&adoptar=s">Adoptar</a></td>
+						<td><a href="perros?id=<%=p.getId()%>&editar=s">Modificar</a></td>
 					<%
 						}
 					%>
