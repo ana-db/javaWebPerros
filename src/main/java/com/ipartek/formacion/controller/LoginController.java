@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
      */
     public LoginController() {
         super();
-        // TODO Auto-generated constructor stub
+       
         usuarios.add( new Usuario(1, "pepe", "123456", "https://github.com/pepe", "https://picsum.photos/") );
         usuarios.add( new Usuario(2, "pepa", "654321", "https://github.com/pepa", "https://picsum.photos/") );
         usuarios.add( new Usuario(3, "admin", "admin", "https://github.com/admin", "https://picsum.photos/") );
@@ -48,8 +48,7 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+				
 		String vista ="";
 		
 		//1. recibir parámetros:
