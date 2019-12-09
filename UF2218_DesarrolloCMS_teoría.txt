@@ -1,0 +1,141 @@
+UF2218 - Desarrollo de un CMS
+
+04/12:
+1) CMS - Sistema de gestión de contenidosURL -->
+	https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_contenidos
+		intro
+		historia: 1er parrafo
+		Gestión del contenido
+		Gestión de usuarios
+		Tipos de gestores de contenidos
+
+
+2) HTTP - Protocolo de Transferencia de HipertextoURL
+	es el protocolo que vamos a usar para aplicaciones web
+	
+	https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto
+		HTTP fue desarrollado por el World Wide Web Consortium 
+		HTTP es un protocolo sin estado, es decir, no guarda ninguna información sobre conexiones anteriores.
+		el estado se mantiene a través de las cookies
+		Versiones por encima
+		Descripción
+			Mensaje y mas abajo Ejemplo de diálogo HTTP: 
+
+Para obtener un recurso con el URL http://www.example.com/index.html
+
+1. Se abre una conexión en el puerto 80 del host www.example.com .El puerto 80 es el puerto predefinido para HTTP. Si se quisiera utilizar el puerto XXXX habría que codificarlo en la URL de la forma http://www.example.com:XXXX/index.html
+2. Se envía un mensaje en el estilo siguiente:
+GET /index.html HTTP/1.1 
+ Host: www.example.com
+ Referer: www.google.com
+ User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0
+ Connection: keep-alive
+ [Línea en blanco]
+
+La respuesta del servidor está formada por encabezados seguidos del recurso solicitado, en el caso de una página web:
+
+HTTP/1.1 200 OK
+Date: Fri, 31 Dec 2003 23:59:59 GMT
+Content-Type: text/html
+Content-Length: 1221
+
+<html lang="eo">
+<head>
+<meta charset="utf-8">
+<title>Título del sitio</title>
+</head>
+<body>
+<h1>Página principal de tuHost</h1>
+(Contenido)
+  .
+  .
+  .
+</body>
+</html>
+
+
+			https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
+				1xx: Respuestas informativas
+				2xx: Peticiones correctas
+				3xx: Redirecciones
+				4xx: Errores del cliente
+				5xx: Errores de servidor
+
+3)
+
+--------------------------------------------------------------------------------
+
+05/12:
+
+1) POJO --> https://en.wikipedia.org/wiki/Plain_old_Java_object
+
+2) MVC - Modelo Vista Controlador
+	cliente = navegador
+	internet = protocolo que usamos
+	petición que entre por el controlador (entrarán a la vista directamente si son páginas de privacidad o login por ejemplo)
+	
+3) Servlets (ppt)
+
+
+--------------------------------------------------------------------------------
+
+
+09/12:
+1) Ciclo de vida de un Servlet (imagen)
+
+2) Log4j
+	google librerías: maven log4j --> https://mvnrepository.com/artifact/log4j/log4j --> https://mvnrepository.com/artifact/log4j/log4j/1.2.17
+	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+	<dependency>
+    		<groupId>log4j</groupId>    <!-- groupId es como el package -->
+    		<artifactId>log4j</artifactId>
+    		<version>1.2.17</version>
+	</dependency>
+
+	¿Qué es log4j?
+	Niveles de log4j
+		nivel de desarrollo: todas
+		nivel de producción: INFO o WARN
+	Loggers:
+		son los que escriben 
+		crear fichero log4j.properties dentro de src --> main --> resources
+		LOG.error para catch (try-catch)
+
+3) JSP Java Server (pág) --> JavaServer Pages (JSP)
+	mezcla código y html
+	JSP sólo se encargan de pintar la vista. De la lógica se encarga el controlador
+	se ejecutan en el servidor
+	conexión a bases de datos en la capa modelo, pero no en el jsp
+	Variables implícitas: session, request, response... son las variables que ya las tenemos
+	Directivas: el código con @ --> <%@ page errorPage="myerror.jsp" %>, include, import
+		<%@ page contentType="class; --> para que los centos funciones correctamente en el servidor
+	Scriptlets: el codigo entre <% %>
+		dentro puede haber más de 1 sentencia y todas tienen que terminar en ";"
+	Declaración de una variable en la jsp --> <%! int serverInstanceVariable = 1;%>
+	Expresiones: <%= o con <%$
+	Etiquetas = taglib = jstl (java server tag library)
+		<%@ taglib uri="/taglib/lycka" prefix="lycka" %>
+ 		...
+ 		<lycka:hola/> --> esta etiqueta lycka existe porque está definida en la librería
+ 		...
+	Etiquetas JSP
+		<jsp:forward>, redirige la request a otra URL --> no lo vamos a usar porque es el ontrolador el que se encarga de las redirecciones
+	Etiquetas JSTL
+		core
+		i18n: multiidioma
+
+4) JSTL - Java Standar Tag Library 
+	estandard de java
+	core: fr, if
+	fmt
+	fn
+	enlace a tutorial: https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm
+5) EL, Expression Language
+	JavaBeans son nuestros POJOs
+	- no hay conversión de tipos explícita
+	- las conversiones de tipos se hacen generalmente de forma implícita
+	- las comillas dobles y simples son equivalentes
+	- objeto.propiedad tiene el mismo significado que objeto.getProperty()
+	Características:
+		En el POM podemos ver la versión del JSTL: <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+		<c:out --> pintaría, es lo mismo que out.print
