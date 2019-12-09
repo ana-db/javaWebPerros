@@ -30,7 +30,7 @@
 	
 </head>
 
-<body id="#top"> <!-- esta es la parte que ve el usuario -->
+<body id="top"> <!-- esta es la parte que ve el usuario -->
 
 	<!-- incluimos datos de sesión del usuario -->
 	<section id="usuario">
