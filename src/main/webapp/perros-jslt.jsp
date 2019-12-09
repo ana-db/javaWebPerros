@@ -34,10 +34,15 @@
 
 
 <c:if test="${empty perroEditar}">
-	<p style="color: blue; font-size:1.5em;">No tenemos perro para editar</p>
+	<p style="color: blue; font-size:1.5em;">No tenemos perro para editar, vamos a inicializarlo</p>
+	<jsp:useBean id="perroEditar" class="com.ipartek.formacion.model.pojo.Perro"></jsp:useBean> <!-- para inicializar un perro la 1a vez que entramos, crear objetos -->
 </c:if>
+<!-- de todas formas, es el controlador es el que debería pasar al jsp el objeto inicializado -->
 
-${perroEditar}
+
+<br>id=> ${perroEditar.id}
+<br>nombre=> ${perroEditar.nombre}
+<br>foto=> ${perroEditar.foto}
 
 
 <!-- ${perros}  pintará el toString del ArrayList sin necesidad de importar las clases Perros ni ArrayList -->
