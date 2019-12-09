@@ -97,19 +97,19 @@
 			<!-- id del perro -->
 			<div class="form-group">
 			    <label for="id">ID</label>
-			    <input type="text" readonly class="form-control" name="id" id="id" required value="<%=perroEditar.getId()%> pattern="[a-zA-Z]{1,50}" placeholder="Nombre del perro">
+			    <input type="text" readonly class="form-control" name="id" id="id" required value="<%=perroEditar.getId()%>" pattern="[a-zA-Z]{1,50}" placeholder="Nombre del perro">
 			</div>
 		
 			<!-- nombre del perro -->
 			<div class="form-group">
 			    <label for="nombre">Nombre</label>
-			    <input type="text" class="form-control" name="nombre" id="nombre" required pattern="[a-zA-Z]{1,50}" placeholder="Nombre del perro">
+			    <input type="text" class="form-control" name="nombre" id="nombre" required value="<%=perroEditar.getNombre()%>" pattern="[a-zA-Z]{1,50}" placeholder="Nombre del perro" >
 			</div>
 			
 			<!-- foto del perro -->
 			<div class="form-group">
 			    <label for="foto">Foto del perro</label>
-			    <input type="text" class="form-control" name="foto" id="foto" required placeholder="url foto del perro">
+			    <input type="text" class="form-control" name="foto" id="foto" required value="<%=perroEditar.getFoto()%>" placeholder="url foto del perro">
 			</div>
 	
     		<!-- submit -->
