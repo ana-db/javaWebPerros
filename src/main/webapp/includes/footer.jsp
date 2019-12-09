@@ -10,6 +10,7 @@
                         <!-- justify-content-between> para justificar el contenido y que ocupe todo el ancho de la pantalla -->
                         <li><a href="login.jsp">Login</a></li>
                         <li><a href="perros">CRUD perros</a></li>
+                        <li><a href="perros2">CRUD Perros con JSTL</a></li>
                     </ul>
                 </nav>
                 

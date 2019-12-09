@@ -14,6 +14,9 @@
 	            <li class="nav-item">
 	                <a class="nav-link" href="perros">CRUD Perros<span class="sr-only">(current)</span></a>
 	            </li>
+	            <li class="nav-item">
+	                <a class="nav-link" href="perros2">CRUD Perros con JSTL<span class="sr-only">(current)</span></a>
+	            </li>
 	            </ul>
 	        </div> <!-- cierre collapse navbar-collapse -->
 	    </div> <!-- cierre container -->
