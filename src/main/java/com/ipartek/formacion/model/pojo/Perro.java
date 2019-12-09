@@ -18,6 +18,12 @@ public class Perro {
 		this();
 		this.nombre = nombre;
 	}
+	
+	public Perro(int id, String nombre) {
+		this();
+		this.id = id;
+		this.nombre = nombre;
+	}
 
 
 	public int getId() {
