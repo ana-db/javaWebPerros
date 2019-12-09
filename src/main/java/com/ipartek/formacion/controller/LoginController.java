@@ -63,7 +63,7 @@ public class LoginController extends HttpServlet {
 				//recuperar sesión del usuario == browser
 				HttpSession session = request.getSession();
 				session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
-				session.setMaxInactiveInterval(60); //5 seg (60*5*24*7) -  -1 nunca caduca
+				session.setMaxInactiveInterval(-1); //5 seg (60*5*24*7) -  -1 nunca caduca
 				vista = "perros";
 			}
 			else {

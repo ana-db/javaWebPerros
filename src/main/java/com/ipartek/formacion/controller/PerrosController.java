@@ -3,6 +3,7 @@ package com.ipartek.formacion.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +24,8 @@ public class PerrosController extends HttpServlet {
     private ArrayList<Perro> perros = new ArrayList<Perro>();
     
    
-
+   //constructor para crear perros
+    /*
 	public PerrosController() {
 		super();
 		perros.add( new Perro("bubba") );
@@ -31,15 +33,49 @@ public class PerrosController extends HttpServlet {
 		perros.add( new Perro("mosca") );
 		perros.add( new Perro("txakur") );
 		perros.add( new Perro("lagun") );
+	} */
+	
+	
+	//ciclo de vida de un servlet: init, destroy y service:
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		//se ejecuta la 1º vez que se llama a este servlet y nunca más
+		super.init(config);
+		
+		//creamos perros desde init en lugar de usar el constructor:
+		perros.add( new Perro("bubba") );
+		perros.add( new Perro("rataplan") );
+		perros.add( new Perro("mosca") );
+		perros.add( new Perro("txakur") );
+		perros.add( new Perro("lagun") );
+	}
+	
+	
+	@Override
+	public void destroy() {
+		//se ejecuta sólo 1 vez cuando se para el servidor de aplicaciones
+		super.destroy();
+		perros = null;
 	}
 
+	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//se ejecuta antes del doGet o doPost
+		super.service(request, response); //ejecuta doGet o doPost
+		
+		//se ejecuta después del doGet o doPost
+		request.setAttribute("perros", perros);
+		request.getRequestDispatcher("perros.jsp").forward(request, response);
+	}
+	
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//listar perros
-		
 		request.setAttribute("perros", perros);
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
 	}
@@ -62,9 +98,10 @@ public class PerrosController extends HttpServlet {
 		perros.add(p);
 		
 		//listar perros
+		/*
 		request.setAttribute("perros", perros);
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
-	
+		*/
 	}
 
 }
