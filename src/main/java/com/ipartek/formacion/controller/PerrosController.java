@@ -109,7 +109,8 @@ public class PerrosController extends HttpServlet {
 			
 			if (adoptar) {
 				perros.remove(perro);
-				mensaje = "Ya has adoptado al perro, gracias";
+				mensaje = "Ya has adoptado a " + perro.getNombre() + " gracias";
+				LOG.info(perro.getNombre() + " ha sido adoptado");
 			}
 			
 			if (editar) {
