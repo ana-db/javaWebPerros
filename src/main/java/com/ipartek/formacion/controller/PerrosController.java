@@ -136,6 +136,27 @@ public class PerrosController extends HttpServlet {
 		String foto = request.getParameter("foto");
 		
 		//TODO validar parámetros
+		/*
+		 * try {
+				//lógica de negocio:
+				if ("".equals(nombre)) {
+					mensaje = "Por favor, rellena el campo del nombre";
+				}
+				else {
+					if ("".equals(foto)) {
+						mensaje = "Por favor, rellena el campo con la url de la foto";
+					}
+				}
+			}
+			catch(NumberFormatException e) {
+				mensaje = "Por favor, escribe un valor numérico";
+			}
+			catch(Exception e) { //excepción general
+				mensaje = "Lo siento pero hay algún error en la escritura";
+			} 
+			finally {
+				//seguimos con la ejecución del programa
+		 */
 		
 		
 		//en función del id del perro:
