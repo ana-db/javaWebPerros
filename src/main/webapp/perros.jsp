@@ -36,7 +36,6 @@
 <hr>
 
 
-
 <h2 class="my-3 text-center text-info">Tabla</h1>
 
 <div class="row justify-content-center align-items-center">
