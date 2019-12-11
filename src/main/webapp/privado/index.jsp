@@ -25,6 +25,7 @@
 	
 	<h3>Accesos indebidos</h3>
 	<p>Numero de Intentos de Acceso Indebidos: <b>X</b> </p>
+	<!-- ${applicationScope.numeroAccesosIndebidos} -->
 	
 	
 	<h3>IPs sin repetir de accesos indebidos</h3>

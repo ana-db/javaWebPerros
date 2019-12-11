@@ -7,25 +7,16 @@ import javax.servlet.annotation.WebListener;
 
 import org.apache.log4j.Logger;
 
-
 /**
- * Application Lifecycle Listener implementation class AppListener
+ * Application Lifecycle Listener implementation class ContadorAccesosIndebidosListener
  *
  */
 @WebListener
-public class AppListener implements ServletContextListener {
-
-	private final static Logger LOG = Logger.getLogger(AppListener.class);
+public class ContadorAccesosIndebidosListener implements ServletContextListener {
 	
-    /**
-     * Default constructor. 
-     */
-    public AppListener() {
-        // TO DO Auto-generated constructor stub
-    }
+	private final static Logger LOG = Logger.getLogger(AppListener.class);
 
-    
-    /**
+	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
@@ -35,11 +26,9 @@ public class AppListener implements ServletContextListener {
     	//sc == applicationScope  
     	//Vamos a contar cuántos usuarios loggeados tenemos:
     	ServletContext sc =  sce.getServletContext();
-    	sc.setAttribute("numeroUsuariosConectados", 0);  //incializamos la variable global "numeroUsuariosConectados" a 0 para evitar nulls
     	sc.setAttribute("numeroAccesosIndebidos", 0);  //incializamos la variable global "numeroUsuariosConectados" a 0 para evitar nulls
     }
-    
-    
+
 	/**
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
