@@ -157,4 +157,26 @@ Content-Length: 1221
 
 11/12:
 
-https://www.mkyong.com/web-development/the-web-xml-deployment-descriptor-examples/ --> 2. Servlet 3.0 deployment descriptor
+1) ESQUEMA REQUEST-RESPONSE CLIENTE-SERVIDOR
+
+SESIÓN USUARIO CORRECTO:
+se guarda en sesión el atribto usuarioLogeado
+
+FILTRO
+Filtro private/*
+el filtro comprueba el atributo de la sesión:
+si el usuarioLogeado es distinto de null, le deja contu¡inuar
+
+BACKOFFICE CONTROLLER
+envía una petición interna o forward al index.jsp
+y el atributo de atributosDesdeServlet
+
+este último index.jsp se convierte en un servlet cuando se envía en la response al cliente
+el servidor convierte el jsp en servlet y ese servlet escribe la response utilizando el content type (text/html) y un código 200
+
+
+
+2) Gestión errores:
+	Deployment Description: javaWebTemplate
+
+	https://www.mkyong.com/web-development/the-web-xml-deployment-descriptor-examples/ --> 2. Servlet 3.0 deployment descriptor
