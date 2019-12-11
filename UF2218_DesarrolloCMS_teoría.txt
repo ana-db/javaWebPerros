@@ -139,3 +139,22 @@ Content-Length: 1221
 	Características:
 		En el POM podemos ver la versión del JSTL: <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
 		<c:out --> pintaría, es lo mismo que out.print
+
+
+--------------------------------------------------------------------------------
+
+
+10/12:
+
+
+1) Scopes o Ambitos de una App Web
+
+2) Listenner y Filters (explicado resumido)
+
+
+--------------------------------------------------------------------------------
+
+
+11/12:
+
+https://www.mkyong.com/web-development/the-web-xml-deployment-descriptor-examples/ --> 2. Servlet 3.0 deployment descriptor
