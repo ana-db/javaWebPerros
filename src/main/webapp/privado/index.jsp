@@ -6,7 +6,7 @@
 
 <p>Sólo pueden acceder los usuairos loggeados</p>
 
-<p>atributo desde servlet: ${atributosDesdeServlet}</p>
+<p>Atributo desde servlet: ${atributoDesdeServlet}</p>
 
 
 <a class="boton-top bg-danger" href="index.jsp#top">^</a>

@@ -57,9 +57,24 @@
 				<!-- será el controlador logoutController quien escuchando en logout, cierre la sesión -->
 			<%
 		}
+		
 		%>
 		
 	</section>
 	
+	
+	<!--
+	
+		<c:if test="${not empty usuarioLogeado}" >
+			<p>usuario logeado: <b>${usuarioLogeado}</b></p>
+			<p><a href="logout">Cerrar Session</a></p>
+		</c:if>
+		
+		
+		<c:if test="${empty usuarioLogeado}" >
+			<a href="login.jsp">Login</a>
+		</c:if>
+	
+	-->
 	
 	

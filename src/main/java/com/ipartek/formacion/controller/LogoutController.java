@@ -1,6 +1,8 @@
 package com.ipartek.formacion.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +22,14 @@ public class LogoutController extends HttpServlet {
      */
     public LogoutController() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
@@ -36,8 +38,9 @@ public class LogoutController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		HttpSession session = request.getSession();
+		session.removeAttribute("usuarioLogeado");
 		session.invalidate(); //cerramos la sesión
 		session = null; 
 		
@@ -45,7 +48,7 @@ public class LogoutController extends HttpServlet {
 		String mensaje="gracias por visitarnos";
 		//SIEMPRE que hagamos una REDIRECCIÓN es necesario usar el GETCONTEXTPATH():
 		String base = request.getContextPath(); //nos da el contexto de este proyecto
-		response.sendRedirect(base + "/login.jsp");
+		response.sendRedirect(base + "/login.jsp?mensaje=" + URLEncoder.encode(mensaje, "UTF-8")); //URLEncoder.encode incluyte en la url el mensaje 
 	}
 
 }
