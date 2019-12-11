@@ -57,6 +57,8 @@ public class LoginController extends HttpServlet {
 		//1. recibir parámetros:
 		String nombre = request.getParameter("nombre");
 		String contrasena = request.getParameter("contrasena");
+		//String idioma = request.getParameter("idioma");
+		//String recuerdame = request.getParameter("recuerdame");
 		
 		String vista ="";
 				

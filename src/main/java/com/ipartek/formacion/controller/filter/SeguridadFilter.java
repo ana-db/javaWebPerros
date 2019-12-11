@@ -62,9 +62,16 @@ public class SeguridadFilter implements Filter {
 			LOG.debug("HTTP RemoteHost: " + req.getRemoteHost());
 			LOG.debug("Navegador: " + req.getHeader("User-Agent"));
 			
-			
-			Map parametosMap = req.getParameterMap(); //parámetros enviados
-			
+			Map parametrosMap = req.getParameterMap(); //recogemos parámetros enviados
+			//visualizamos los parámetros enviados:
+			/*
+			for (Map key : parametrosMap.keySet()) {
+			    String[] strArr = (String[]) parametrosMap.get(key);
+			    for (String val : strArr) {
+			        System.out.println("Str Array= " + val);
+			    }
+			}	
+			*/		
 		}
 		else {
 			//dejamos pasar al filtro y continuar:

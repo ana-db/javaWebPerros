@@ -10,8 +10,18 @@
 */
 
 
+/* 3- etiquetas
+************************************/
+/*
+#usuario {
+	background-color: #17a2b8;
+	color: white;
+}
+*/
+
 /* 5- layouts 
 ************************************/
+
 nav {
     min-height: 10vh; /* ocupa el 10% del alto de la pantalla del dispositivo */
 }
