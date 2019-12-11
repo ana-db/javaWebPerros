@@ -69,7 +69,10 @@ public class LoginController extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
 				session.setMaxInactiveInterval(-1); //5 seg (60*5*24*7) -  -1 nunca caduca
-				vista = "perros";
+				
+				//11/12:
+				//vista = "perros";
+				vista = "privado/home";
 				
 				LOG.info("Logging correcto");
 			}

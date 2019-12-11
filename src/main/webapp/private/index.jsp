@@ -4,6 +4,10 @@
 
 <h1 class="my-3 text-center text-info">Private index</h1>
 
+<p>Sólo pueden acceder los usuairos loggeados</p>
+
+<p>atributo desde servlet: ${atributosDesdeServlet}</p>
+
 
 <a class="boton-top bg-danger" href="index.jsp#top">^</a>
 

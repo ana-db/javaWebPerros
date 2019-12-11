@@ -49,6 +49,8 @@
 		{
 			%>
 				<p>Usuario: <%=usuario%></p>
+				<p>Usuario logeado: ${usuarioLogeado}</p> <!-- 11/12 -->
+				
 				<p><a href="logout">Cerrar sesion</a></p>	
 				<!-- será el controlador logoutController quien escuchando en logout, cierre la sesión -->
 			<%
@@ -56,3 +58,6 @@
 		%>
 		
 	</section>
+	
+	
+	
