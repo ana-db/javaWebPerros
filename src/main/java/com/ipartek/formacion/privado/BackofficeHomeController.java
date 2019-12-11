@@ -18,7 +18,7 @@ import com.ipartek.formacion.model.pojo.Usuario;
 /**
  * Servlet implementation class BackofficeController
  */
-@WebServlet("/privado/home")
+@WebServlet({"/privado/index", "/privado/index/"})
 public class BackofficeHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
