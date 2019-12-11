@@ -10,7 +10,9 @@
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <!-- la base para construir todas las rutas de esta página -->
-    <base href="/perros/"> <!-- nombre de nuestro proyecto actual -->
+    <!-- <base href="/perros/"> <!-- nombre de nuestro proyecto actual -->
+    <base href="${pageContext.request.contextPath}/" /> <!-- coge directamente el servidor, el puerto y el nombre del proyecto. Añadimos la barra -->
+    <p>ContextPath = <b>${pageContext.request.contextPath}</b></p> <!-- coge directamente el servidor, el puerto y el nombre del proyecto -->
     
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
