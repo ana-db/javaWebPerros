@@ -54,6 +54,16 @@
 								    <label for="contrasena">Contraseña:</label> 
 								    <input type="password" class="form-control" name="contrasena" id="contrasena" required pattern=".{5,8}" placeholder="Contraseña (mín 5, máx 8)"><br>
 								</div>
+								
+								<!-- idioma -->
+								<div class="form-group">
+								    <label for="idioma">Idioma:</label>
+								    <select class="form-control" name="idioma" id="idioma">
+								    	<option value="c" selected>Catellano</option>
+								        <option value="eu">Euskera</option>
+								        <option value="en">English</option>
+								    </select>
+								</div>
 							    
 							    <!-- recuerdame -->
 								<input type="checkbox" checked name="recuerdame" id="recuerdame" value="1" >Recuerdame <br>
