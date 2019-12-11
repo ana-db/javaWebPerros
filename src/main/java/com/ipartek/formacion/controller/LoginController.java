@@ -65,27 +65,29 @@ public class LoginController extends HttpServlet {
 		//for (Usuario usuario : usuarios) {
 		//	if (usuario.getNombre().equalsIgnoreCase(nombre) && usuario.getPassword().equalsIgnoreCase(contrasena)) {
 		if (NOMBRE_USUARIO.equalsIgnoreCase(nombre) && PASSWORD_USUARIO.equalsIgnoreCase(contrasena)) {
-				//recuperar sesión del usuario == browser
-				HttpSession session = request.getSession();
-				session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
-				session.setMaxInactiveInterval(-1); //5 seg (60*5*24*7) -  -1 nunca caduca
-				
-				//11/12:
-				//vista = "perros";
-				vista = "privado/home";
-				
-				LOG.info("Logging correcto");
-			}
-			else {
-				vista = "index.jsp";
-				LOG.warn("Las credenciales no son correctas");
-			}
+			//recuperar sesión del usuario == browser
+			HttpSession session = request.getSession();
+			session.setAttribute("usuarioLogeado", nombre); //guarda 1 atributo  de la sesión
+			session.setMaxInactiveInterval(-1); //5 seg (60*5*24*7) -  -1 nunca caduca
+			
+			//vista = "perros"; //11/12
+			vista = "/privado/index.jsp";
+			
+			LOG.info("Logging correcto");
+		}
+		else {
+			//vista = "/index.jsp"; //11/12
+			vista = "/login.jsp";
+			LOG.warn("Las credenciales no son correctas");
+		}
 		//}
 		
 		
 		//ir a JSP:
 		//request.getRequestDispatcher("index.jsp").forward(request, response);
-		response.sendRedirect(vista); //así evitamos que en la url aparezca la web que envía la response
+		//SIEMPRE que hagamos una REDIRECCIÓN es necesario usar el GETCONTEXTPATH():
+		String base = request.getContextPath(); //nos da el contexto de este proyecto
+		response.sendRedirect(base + vista); //así evitamos que en la url aparezca la web que envía la response
 	}
 
 }

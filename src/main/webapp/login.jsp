@@ -2,6 +2,25 @@
 <%@include file="includes/navigation.jsp" %>
 
 
+<%
+	//atributo
+	String mensaje = (String)request.getAttribute("mensaje");
+
+	//si el mensaje no viene como atributo, lo intentamos con la request
+	if(mensaje !=null){ 
+		mensaje = request.getParameter("mensaje");
+	}
+	
+	//
+	if(mensaje !=null){ 
+	%>
+		<p style="color:red;"><%=mensaje%></p>	
+	<%
+		
+	}
+		
+%>
+
 <!-- ------------------------------------------------------------------- -->
 
 <h1 class="my-3 text-center text-info">Login Java Web Perros</h1>

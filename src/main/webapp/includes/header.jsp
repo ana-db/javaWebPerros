@@ -11,7 +11,7 @@
 
     <!-- la base para construir todas las rutas de esta página -->
     <base href="/perros/"> <!-- nombre de nuestro proyecto actual -->
-
+    
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 

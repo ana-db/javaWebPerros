@@ -41,7 +41,11 @@ public class LogoutController extends HttpServlet {
 		session.invalidate(); //cerramos la sesión
 		session = null; 
 		
-		request.getRequestDispatcher("index.jsp").forward(request, response); //enviamos a la página de inicio para volver a loggearse
+		//request.getRequestDispatcher("index.jsp").forward(request, response); //enviamos a la página de inicio para volver a loggearse
+		String mensaje="gracias por visitarnos";
+		//SIEMPRE que hagamos una REDIRECCIÓN es necesario usar el GETCONTEXTPATH():
+		String base = request.getContextPath(); //nos da el contexto de este proyecto
+		response.sendRedirect(base + "/login.jsp");
 	}
 
 }

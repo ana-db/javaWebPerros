@@ -19,15 +19,15 @@ import com.ipartek.formacion.model.pojo.Usuario;
  * Servlet implementation class BackofficeController
  */
 @WebServlet("/privado/home")
-public class BackofficeController extends HttpServlet {
+public class BackofficeHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final Logger LOG = Logger.getLogger(BackofficeController.class);
+	private static final Logger LOG = Logger.getLogger(BackofficeHomeController.class);
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BackofficeController() {
+    public BackofficeHomeController() {
         super();
         // TO DO Auto-generated constructor stub
     }
