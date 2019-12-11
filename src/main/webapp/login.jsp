@@ -1,6 +1,17 @@
 <%@include file="includes/header.jsp" %>
 <%@include file="includes/navigation.jsp" %>
 
+<p>Indicamos con una directaiva que en caso de error tiene que ir a la página de error indicada</p>
+<code>page errorPage="error.jsp"</code>
+<%@page errorPage="error.jsp" %>
+
+
+<%
+	//descomentra las siguientes líneas para que se lance un error:
+	//Object o = null;
+	//o.toString();
+%>
+
 
 <%
 	//atributo
@@ -20,6 +31,10 @@
 	}
 		
 %>
+
+
+
+
 
 <!-- ------------------------------------------------------------------- -->
 

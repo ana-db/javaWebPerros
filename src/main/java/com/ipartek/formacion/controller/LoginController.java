@@ -53,7 +53,10 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+		// descomentar estas lienas para que lance una exception
+		// int infinito = 5 / 0;
+		
+		
 		//1. recibir parámetros:
 		String nombre = request.getParameter("nombre");
 		String contrasena = request.getParameter("contrasena");
