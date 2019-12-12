@@ -2,6 +2,9 @@
 <%@include file="../includes/navigation.jsp" %>
 
 
+<!-- para refrescar la página cada 5 seg (llamará al controlador cada 5 segs) -->
+<meta http-equiv="refresh" content="5">
+
 <h1 class="my-3 text-center text-info">Index Privado</h1>
 
 <section>
@@ -11,7 +14,8 @@
 </section>
 
 
-<section>
+<section>	
+	
 	<!-- 
 		LISTENNERS
 		con la siguiente instrucción podemos ver cuántos usuarios están conectados a la 
@@ -24,7 +28,7 @@
 	
 	
 	<h3>Accesos indebidos</h3>
-	<p>Numero de Intentos de Acceso Indebidos: <b>X</b> </p>
+	<p>Numero de Intentos de Acceso Indebidos: <b>${applicationScope.numeroAccesosIndebidos}</b> </p>
 	<!-- ${applicationScope.numeroAccesosIndebidos} -->
 	
 	
