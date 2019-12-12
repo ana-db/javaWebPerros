@@ -43,7 +43,7 @@
 
 
 <section>
-	<a href="privado/formulario.jsp">Formulario Deportes</a>
+	<a href="privado/formulariodeportes.jsp">Formulario Deportes</a>
 </section>
 
 

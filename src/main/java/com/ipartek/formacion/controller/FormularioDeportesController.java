@@ -14,28 +14,38 @@ import javax.servlet.http.HttpServletResponse;
 public class FormularioDeportesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FormularioDeportesController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		//1. recibimos los parámetros del formulario:
+		String nombre = request.getParameter("nombre");
+		//String email = request.getParameter("email");
+		
+		String vista ="";
+		
+		//2. lógica de negocio:
+		
+		//3. enviamos datos a la vista:
+		request.setAttribute("nombre", nombre);
+		vista = "/privado/resumenFormulario.jsp";
+		
+		//4. vamos al JSP:
+		//request.getRequestDispatcher("/privado/resumenFormulario.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//SIEMPRE que hagamos una REDIRECCIÓN es necesario usar el GETCONTEXTPATH():
+		String base = request.getContextPath(); //nos da el contexto de este proyecto
+//		response.sendRedirect(base + vista); //así evitamos que en la url aparezca la web que envía la response
 	}
 
 }
