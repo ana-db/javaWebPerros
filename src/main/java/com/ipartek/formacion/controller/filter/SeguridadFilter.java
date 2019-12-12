@@ -7,6 +7,7 @@ import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -32,6 +33,15 @@ import com.ipartek.formacion.controller.PerrosController;
 public class SeguridadFilter implements Filter {
 
 	private static final Logger LOG = Logger.getLogger(PerrosController.class);
+	
+	/**
+	 * @see Filter#init(FilterConfig)
+	 */
+	public void init(FilterConfig fConfig) throws ServletException {
+		LOG.trace("init");
+		
+		fConfig.getServletContext().setAttribute("numeroAccesosIndebidos", 0); //se puede incializar aquí o en el AppListener
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -72,6 +82,16 @@ public class SeguridadFilter implements Filter {
 			    }
 			}	
 			*/		
+			
+			/*
+			 * Vamos a calcular el números de usuarios que acceden indebidamente
+			 * Se inicializa la variable en este listener
+			 * @see com.ipartek.formacion.controller.listener.AppListener
+			 */
+			ServletContext sc = req.getServletContext(); //AplicationContext en la JSP
+			int numeroAccesosIndebidos = (int)sc.getAttribute("numeroAccesosIndebidos");
+			numeroAccesosIndebidos++;
+			sc.setAttribute("numeroAccesosIndebidos", numeroAccesosIndebidos);
 		}
 		else {
 			//dejamos pasar al filtro y continuar:
@@ -80,11 +100,6 @@ public class SeguridadFilter implements Filter {
 		}
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		LOG.trace("init");
-	}
+	
 
 }
