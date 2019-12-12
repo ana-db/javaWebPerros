@@ -14,10 +14,10 @@
 			    <input type="text" class="form-control" name="nombre" id="nombre" required pattern="[a-zA-Z]{1,50}" placeholder="Nombre ususario"><br>
 			</div>
 			
-			<!-- email 
+			<!-- email -->
 			<div class="form-group">
 			    <label for="email">Email:</label> 
-    			<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Escribe aquí tu email" required>
+    			<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribe aquí tu email" required>
 			</div>
 		    
 		    <!-- recuerdame 

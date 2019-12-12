@@ -30,7 +30,7 @@ public class FormularioDeportesController extends HttpServlet {
 		
 		//1. recibimos los parámetros del formulario:
 		String nombre = request.getParameter("nombre");
-		//String email = request.getParameter("email");
+		String email = request.getParameter("email");
 		
 		String vista ="";
 		
@@ -38,14 +38,15 @@ public class FormularioDeportesController extends HttpServlet {
 		
 		//3. enviamos datos a la vista:
 		request.setAttribute("nombre", nombre);
+		request.setAttribute("email", email);
 		vista = "/privado/resumenFormulario.jsp";
 		
 		//4. vamos al JSP:
 		//request.getRequestDispatcher("/privado/resumenFormulario.jsp").forward(request, response);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("privado/resumenFormulario.jsp").forward(request, response);
 		//SIEMPRE que hagamos una REDIRECCIÓN es necesario usar el GETCONTEXTPATH():
 		String base = request.getContextPath(); //nos da el contexto de este proyecto
-//		response.sendRedirect(base + vista); //así evitamos que en la url aparezca la web que envía la response
+//		response.sendRedirect(base + vista); //así evitamos que en la url aparezca la web que envía la response	
 	}
 
 }

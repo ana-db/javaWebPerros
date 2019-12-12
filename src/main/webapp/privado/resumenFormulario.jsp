@@ -11,12 +11,13 @@
 		<%
 		//recibimos los atributos del controlador:
 		String nombre = (String)request.getAttribute("nombre");	
-		//String email = (String)request.getAttribute("email");		
+		String email = (String)request.getAttribute("email");		
 		%>
 	
 		<!-- visualizamos los datos recibidos: -->
 		<ol>
-			<li>Nombre: ${nombre}</li>
+			<li>Gracias ${nombre}</li>
+			<li>Se enviará un correo a ${email}</li>
 			<!-- <li style="color:green;">Mensaje: ${mensaje}</li> -->
 		</ol>
 		
