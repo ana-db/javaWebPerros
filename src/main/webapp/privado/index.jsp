@@ -42,6 +42,11 @@
 </section>
 
 
+<section>
+	<a href="privado/formulario.jsp">Formulario Deportes</a>
+</section>
+
+
 <a class="boton-top bg-danger" href="privado/index.jsp#top">^</a>
 
 <%@include file="../includes/footer.jsp" %>
