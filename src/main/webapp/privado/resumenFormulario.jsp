@@ -1,9 +1,3 @@
-<!-- taglibs necesarias para leer c:forEach : -->
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <%@include file="../includes/header.jsp" %>
 <%@include file="../includes/navigation.jsp" %>
 
@@ -18,6 +12,7 @@
 //		String nombre = (String)request.getAttribute("nombre");	
 //		String email = (String)request.getAttribute("email");	
 //		String deportes = (String)request.getAttribute("deportes");
+		//como usamos notación ${XX}, no hacen falta estas líneas, se hace directamente
 		%>
 	
 		<!-- visualizamos los datos recibidos: -->
@@ -31,6 +26,7 @@
 					<li><b>${deporte}</b></li>
 				</c:forEach>
 			</li>
+			<li>Eres <b>${sexo}</b></li>
 		</ol>
 		
 	</div> <!-- fin class="col" -->

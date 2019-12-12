@@ -34,6 +34,7 @@ public class FormularioDeportesController extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String email = request.getParameter("email");
 		String deportes[]=request.getParameterValues("deportes");
+		String sexo = request.getParameter("sexo");
 		String vista ="";
 		
 		//2. lógica de negocio:
@@ -43,6 +44,7 @@ public class FormularioDeportesController extends HttpServlet {
 			request.setAttribute("nombre", nombre);
 			request.setAttribute("email", email);
 			request.setAttribute("deportes", deportes);
+			request.setAttribute("sexo", sexo);
 			
 			//4. vamos al JSP:
 			request.getRequestDispatcher("privado/resumenFormulario.jsp").forward(request, response);

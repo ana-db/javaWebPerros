@@ -20,11 +20,9 @@
 			
 			<!-- email -->
 			<div class="form-group">
-			    <label for="email">email</label> 
+			    <label for="email">Email</label> 
     			<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribe aquí tu email" required>
 			</div>
-			
-			
 			
 			<!-- deportes -->
 			<div class="form-group">
@@ -47,6 +45,16 @@
 			
 			${deportes}
 			-->
+			
+			<!-- sexo -->
+			<div class="form-group">
+			    <label for="sexo">Sexo:</label> 
+			    <select name="sexo" id="sexo">
+	                <option value="h">Hombre</option>
+	                <option value="m">Mujer</option>
+	                <option value="i" selected>Indefinido</option>
+	            </select>
+			</div>
 		    
 			<input type="submit" class="btn btn-info" value="Enviar">
 		
