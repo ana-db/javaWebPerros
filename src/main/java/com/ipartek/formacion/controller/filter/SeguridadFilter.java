@@ -1,6 +1,7 @@
 package com.ipartek.formacion.controller.filter;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Map;
 
 import javax.servlet.DispatcherType;
@@ -40,7 +41,15 @@ public class SeguridadFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		LOG.trace("init");
 		
+		//ServletContext sc = fConfig.getServletContext(); 
+		
 		fConfig.getServletContext().setAttribute("numeroAccesosIndebidos", 0); //se puede incializar aquí o en el AppListener
+		//sc.setAttribute("numeroUsuariosIndebidos", 0); 
+		
+		//inicializamos con el contexto, la colección vacía para guardar ips:
+		fConfig.getServletContext().setAttribute("ips", new HashSet<String>()); 
+		//sc.setAttribute("ips", new HashSet<String>());
+
 	}
 
 	/**
@@ -83,19 +92,29 @@ public class SeguridadFilter implements Filter {
 			}	
 			*/		
 			
+			
 			/*
 			 * Vamos a calcular el números de usuarios que acceden indebidamente
 			 * Se inicializa la variable en este listener
 			 * @see com.ipartek.formacion.controller.listener.AppListener
 			 */
 			ServletContext sc = req.getServletContext(); //AplicationContext en la JSP
+			//actualizamos numeroAccesosIndebidos:
 			int numeroAccesosIndebidos = (int)sc.getAttribute("numeroAccesosIndebidos");
 			numeroAccesosIndebidos++;
 			sc.setAttribute("numeroAccesosIndebidos", numeroAccesosIndebidos);
+			
+			//guardamos ip en la colección:
+			HashSet<String> ips = (HashSet<String>)sc.getAttribute("ips");
+			String ipCliente = req.getRemoteHost();
+			ips.add(ipCliente);
+			sc.setAttribute("ips", ips);
+			
 		}
 		else {
 			//dejamos pasar al filtro y continuar:
 			// pass the request along the filter chain
+			LOG.trace("logeado con exito");
 			chain.doFilter(request, response);
 		}
 	}

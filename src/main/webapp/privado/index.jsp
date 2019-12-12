@@ -34,9 +34,9 @@
 	
 	<h3>IPs sin repetir de accesos indebidos</h3>
 	<ol>
-		<li>192.x.x.x</li>
-		<li>192.x.x.x</li>
-		<li>192.x.x.x</li>
+		<c:forEach items="${applicationScope.ips}" var="ip">
+			<li>${ip}</li>
+		</c:forEach>
 	</ol>
 	
 </section>
