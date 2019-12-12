@@ -30,5 +30,6 @@
 		<location>/error500.jsp</location>
 	</error-page>
 	
+	<!-- esta página de errores es para servlets. En los jsps añadiremos: page errorPage="error.jsp" -->
 	
 </web-app>

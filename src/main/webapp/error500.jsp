@@ -1,4 +1,4 @@
-<%@page isErrorPage="true"%>
+<%@page isErrorPage="true"%> <!-- así indicamos que es una página de error. El resto lo tienen a false por defecto -->
 
 <h1>Aprende a progarmar</h1>
 
