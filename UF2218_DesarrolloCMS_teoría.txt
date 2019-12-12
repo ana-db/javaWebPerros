@@ -180,3 +180,18 @@ el servidor convierte el jsp en servlet y ese servlet escribe la response utiliz
 	Deployment Description: javaWebTemplate
 
 	https://www.mkyong.com/web-development/the-web-xml-deployment-descriptor-examples/ --> 2. Servlet 3.0 deployment descriptor
+
+
+
+--------------------------------------------------------------------------------
+
+
+12/12:
+
+1) Google: java set example --> http://tutorials.jenkov.com/java-collections/set.html
+	Moodle: ¿Que colección usar ? (diagrama flujo)
+		implementar con HashSet, LinkedHashSet o TreeSet en función de si queremos ordenar o no
+
+2) test --> new --> junit test case --> damosNombreTest
+	debug --> junit test
+	
