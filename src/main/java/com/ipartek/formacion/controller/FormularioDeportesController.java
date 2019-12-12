@@ -35,9 +35,32 @@ public class FormularioDeportesController extends HttpServlet {
 		String email = request.getParameter("email");
 		String deportes[]=request.getParameterValues("deportes");
 		String sexo = request.getParameter("sexo");
-		String vista ="";
 		
-		//2. lógica de negocio:
+		String vista ="";
+		String mensaje ="";
+		
+		//2. lógica de negocio: 
+		//validaciones:
+		
+		//nombre:
+		if ("".equals(nombre)) {
+			mensaje = "Por favor, escribe tu nombre";
+		}
+		else {
+			request.setAttribute("nombre", nombre);
+		}
+		
+		
+		//email:
+		if ("".equals(email)) {
+			mensaje = "Por favor, escribe tu correo";
+		}
+		else {
+			request.setAttribute("email", email);
+		}
+		
+		
+		
 		//3 deportes mínimo:
 		if (deportes != null && deportes.length >= 3) { //ok, ha elegido al menos 3 deportes
 			//3. enviamos datos a la vista:

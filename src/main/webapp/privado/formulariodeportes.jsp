@@ -2,7 +2,7 @@
 <%@include file="../includes/navigation.jsp" %>
 
 
-<h2 class="my-3 text-center text-info">Formulario Deportes</h1>
+<h2 class="my-3 text-center text-info">Formulario Deportes</h2>
 
 <div class="row justify-content-center align-items-center"> <!-- para centrar el fomulario necesitamos que esté dentro de las clases row y col -->
 	<div class="col-6">
@@ -13,9 +13,11 @@
 			</c:if>
 		
 			<!-- nombre usuario -->
-			<div class="form-group">
+			<!-- <div class="form-group"> -->
+			<div>
 			    <label for="nombre">Nombre:</label> 
-			    <input type="text" class="form-control" name="nombre" value=${nombre} id="nombre" required pattern="[a-zA-Z]{1,50}" placeholder="Nombre ususario"><br>
+			    <!-- <input type="text" class="form-control" name="nombre" value=${nombre} id="nombre" required pattern="[a-zA-Z]{1,50}" placeholder="Nombre ususario"> -->
+				<input type="text" name="nombre" value=${nombre} id="nombre" required pattern="[a-zA-Z]{2,50}" placeholder="Nombre ususario (2-50 letras)">
 			</div>
 			
 			<!-- email -->
@@ -23,6 +25,11 @@
 			    <label for="email">Email</label> 
     			<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribe aquí tu email" required>
 			</div>
+			<!--
+			<div class="form-group">
+			    <label for="email">Email</label> 
+    			<input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribe aquí tu email" required>
+			</div>-->
 			
 			<!-- deportes -->
 			<div class="form-group">
