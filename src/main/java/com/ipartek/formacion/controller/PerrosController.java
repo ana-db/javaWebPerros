@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.ipartek.formacion.model.ArrayPerroDAO;
 import com.ipartek.formacion.model.pojo.Perro;
 
 /**
@@ -22,10 +23,12 @@ public class PerrosController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = Logger.getLogger(PerrosController.class);
-	private int indice = 0;
+	//private int indice = 0;
 	private String mensaje = "";
 	
-    private ArrayList<Perro> perros = new ArrayList<Perro>();
+    //private ArrayList<Perro> perros = new ArrayList<Perro>();
+	
+	private static ArrayPerroDAO dao = ArrayPerroDAO.getInstance(); 
     
    
     //constructor para crear perros
@@ -47,12 +50,28 @@ public class PerrosController extends HttpServlet {
 		super.init(config);
 		
 		//creamos perros desde init en lugar de usar el constructor PerrosController():
+		/*
 		perros.add( new Perro(1, "bubba") );
 		perros.add( new Perro(2, "rataplan") );
 		perros.add( new Perro(3, "mosca") );
 		perros.add( new Perro(4, "txakur") );
 		perros.add( new Perro(5, "lagun") );
 		indice = 6;
+		*/
+	
+		//ahora cremaos los objetos desde el DAO, en lugar del arrayList:
+		try {
+			dao.create(new Perro("bubba"));
+			dao.create(new Perro("rataplan"));
+			dao.create(new Perro("mosca"));
+			dao.create(new Perro("txakur"));
+			dao.create(new Perro("lagun"));
+			
+		} catch (Exception e) {
+			LOG.warn(e);		
+		}
+
+	
 	}
 	
 	
@@ -60,7 +79,7 @@ public class PerrosController extends HttpServlet {
 	public void destroy() {
 		LOG.trace("se ejecuta sólo 1 vez cuando se para el servidor de aplicaciones");
 		super.destroy();
-		perros = null;
+		//perros = null;
 		
 	} 
 
@@ -73,7 +92,8 @@ public class PerrosController extends HttpServlet {
 		
 		LOG.trace("se ejecuta después del doGet o doPost");
 		request.setAttribute("mensaje", mensaje);
-		request.setAttribute("perros", perros);
+		//request.setAttribute("perros", perros);
+		request.setAttribute("perros", dao.getAll() ); //usamos el DAO que hemos creado en la capa modelo
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
 	}
 	
@@ -99,6 +119,7 @@ public class PerrosController extends HttpServlet {
 		
 		if (id > 0) {
 			//busacmos el perro en el ArrayList
+			/*
 			Perro perro = null;
 			
 			for (Perro p : perros) {
@@ -107,20 +128,33 @@ public class PerrosController extends HttpServlet {
 					break;
 				}
 			}
+			*/
+			
+			Perro perro = dao.getById(id);
 			
 			if (adoptar) {
-				perros.remove(perro);
-				mensaje = "Ya has adoptado a " + perro.getNombre() + " gracias";
-				LOG.info(perro.getNombre() + " ha sido adoptado");
+				//perros.remove(perro);
+				try {
+					dao.delete(id);
+					mensaje = "Ya has adoptado a " + perro.getNombre() + " gracias";
+					LOG.info(perro.getNombre() + " ha sido adoptado");
+				} catch (Exception e) {
+					mensaje = "No se puede adoptar este perro";
+				}
 			}
 			
 			if (editar) {
-				request.setAttribute("perroEditar", perro);
+				//request.setAttribute("perroEditar", perro);
+				try {
+					dao.update(perro, id);
+				} catch (Exception e) {
+					mensaje = "No se pueden modificar los datos de este perro";
+				}
+				request.setAttribute("perroEditar", perro);		
 			}
-				
-		}
-		else {
-			LOG.trace("Sólo se listan los perros");
+			else {
+				LOG.trace("Sólo se listan los perros");
+			}
 		}
 	}
 
@@ -168,6 +202,7 @@ public class PerrosController extends HttpServlet {
 			
 			Perro perro = null;
 			
+			/*
 			//buscamos el perro en el ArrayList			
 			for (Perro p : perros) {
 				if (p.getId() == id) {
@@ -175,25 +210,43 @@ public class PerrosController extends HttpServlet {
 					break;
 				}
 			}
+			*/
 			
 			//modificamos los datos
 			perro.setNombre(nombre);
 			perro.setFoto(foto);
 			
-			mensaje = "Los datos del perro se han modificado correctamente";
+			try {
+				dao.update(perro, id);
+				mensaje = "Los datos del perro se han modificado correctamente";
+			} catch (Exception e) {
+				mensaje = "Los datos no se han podido modificar";
+			}			
+			
+			// TODO arreglar error al modificar
+			
 		}
 		else {
+			LOG.trace("Crear nuevo registro de un perro");
+			
 			//crear registro para un nuevo perro
 			Perro p = new Perro();
 			p.setNombre(nombre);
 			p.setFoto(foto);
-			p.setId(indice);
-			indice++; //incrementamos para el siguiente
+			//p.setId(indice);
+			//indice++; //incrementamos para el siguiente
 			
-			mensaje = "Gracias por dar de alta un perro nuevo";
+			
 			
 			//lo guardamos en la lista
-			perros.add(p);
+			//perros.add(p);
+			try {
+				dao.create(p);
+				mensaje = "Gracias por dar de alta un perro nuevo";
+				
+			} catch (Exception e) {
+				mensaje = "No se puede dar de alta";
+			}	
 		}
 			
 		

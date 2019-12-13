@@ -8,7 +8,7 @@ import com.ipartek.formacion.model.pojo.Perro;
 public class ArrayPerroDAO implements IDAO<Perro>{
 	
 	private ArrayList<Perro> registros;
-	private static int indice = 1; //por seguridad se suele indicar que empiece por cualquier núm excpeto el 1
+	private static int indice = 0; //por seguridad se suele indicar que empiece por cualquier núm excpeto el 1
 	
 	private static ArrayPerroDAO INSTANCE = null;
 	
