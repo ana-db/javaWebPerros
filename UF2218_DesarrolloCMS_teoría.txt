@@ -195,3 +195,44 @@ el servidor convierte el jsp en servlet y ese servlet escribe la response utiliz
 2) test --> new --> junit test case --> damosNombreTest
 	debug --> junit test
 	
+
+
+--------------------------------------------------------------------------------
+
+
+13/12:
+1) branches y capa modelo
+	https://es.wikipedia.org/wiki/Singleton
+		garantizamos que sólo haya 1 objeto de esa clase
+		exclusión mutua se corrige poniendo syncronized
+
+Un ejemplo correcto de inicialización diferida. Se deja para comentar un error común en Java al no tener en cuenta la sincronización de métodos.
+
+public class Singleton {
+    private static Singleton INSTANCE = null;
+
+    // Private constructor suppresses 
+    private Singleton(){}
+
+    // creador sincronizado para protegerse de posibles problemas  multi-hilo
+    // otra prueba para evitar instanciación múltiple 
+    private synchronized static void createInstance() {
+        if (INSTANCE == null) { 
+            INSTANCE = new Singleton();
+        }
+    }
+
+    public static Singleton getInstance() {
+        if (INSTANCE == null) createInstance();
+        return INSTANCE;
+    }
+}
+
+
+2) test
+	- test unitario: ej. comprobar que funcione 1 clase
+	- test funcionalidad: ej. comprobar que funcione bien el login
+
+
+	- assertEquals, compara primitivos (int...)
+	- assertSame, compara objetos
