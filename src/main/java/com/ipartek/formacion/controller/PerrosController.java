@@ -61,7 +61,8 @@ public class PerrosController extends HttpServlet {
 		LOG.trace("se ejecuta sólo 1 vez cuando se para el servidor de aplicaciones");
 		super.destroy();
 		perros = null;
-	}
+		
+	} 
 
 	
 	@Override
