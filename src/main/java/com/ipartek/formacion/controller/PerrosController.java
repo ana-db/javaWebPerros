@@ -31,7 +31,7 @@ public class PerrosController extends HttpServlet {
     //constructor para crear perros
     /*
 	public PerrosController() {
-		super();
+		super(); 
 		perros.add( new Perro("bubba") );
 		perros.add( new Perro("rataplan") );
 		perros.add( new Perro("mosca") );

@@ -69,14 +69,38 @@ public class ArrayPerroDAO implements IDAO<Perro>{
 
 	@Override
 	public Perro update(Perro pojo, int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Perro resul = null; 
+		
+		for (int i = 0; i < registros.size(); i++) {
+			if (id == registros.get(i).getId()) { //registros.get(i) nos devuelve un objeto perro completo
+				registros.remove(i);
+				registros.add(pojo);
+				break;
+			}
+		}
+		
+		if (resul == null) {
+			throw new Exception("El perro no se ha encontrado" + id);
+		}
+		
+		return resul;
 	}
 
 	@Override
 	public Perro create(Perro pojo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Perro resul = pojo; 
+		
+		//TODO comprobar campos del pojo
+		
+		if (pojo != null) {
+			pojo.setId(++indice);
+			registros.add(pojo);
+		}
+		else {
+			throw new Exception("No se ha podido crear: Perro NULL sin datos");
+		}
+		
+		return resul;
 	}
 	
 }

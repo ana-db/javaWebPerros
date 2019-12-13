@@ -7,7 +7,7 @@ import com.ipartek.formacion.model.pojo.Perro;
 
 public interface IDAO<P> {
 	/**
-	 * Obtiene todos los datos
+	 * Obtiene todos los datos 
 	 * @return lista de pojos
 	 * */
 	//ArrayList<Perro> getAll(); //método que nos devolverá una lista con los perros
