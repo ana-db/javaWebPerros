@@ -67,6 +67,7 @@
 
 <!-- ------------------------------------------------------------------- -->
 
+<h2 class="my-3 text-center text-info">Branch modelo</h2>
 
 <a class="boton-top bg-danger" href="index.jsp#top">^</a>
 
