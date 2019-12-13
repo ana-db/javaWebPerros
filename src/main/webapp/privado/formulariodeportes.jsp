@@ -57,9 +57,11 @@
 			<div class="form-group">
 			    <label for="sexo">Sexo:</label> 
 			    <select name="sexo" id="sexo">
-	                <option value="h">Hombre</option>
-	                <option value="m">Mujer</option>
-	                <option value="i" selected>Indefinido</option>
+			    	<option value="">-- Selecciona --</option>
+	                <option value="h" ${(sexo eq 'h') ? "selected" : ""}>Hombre</option>
+	                <option value="m" ${(sexo eq 'h') ? "selected" : ""}>Mujer</option>
+	                <option value="i" ${( (sexo eq 'h') or (empty sexo)) ? "selected" : ""}>Indefinido</option>
+	            	<!-- selected es equivalente a:  ${(sexo eq 'h') ? "selected" : ""} -->
 	            </select>
 			</div>
 		    
