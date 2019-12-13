@@ -23,7 +23,7 @@ public class PerrosController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = Logger.getLogger(PerrosController.class);
-	//private int indice = 0;
+	private int indice = 0;
 	private String mensaje = "";
 	
     //private ArrayList<Perro> perros = new ArrayList<Perro>();
@@ -55,9 +55,9 @@ public class PerrosController extends HttpServlet {
 		perros.add( new Perro(2, "rataplan") );
 		perros.add( new Perro(3, "mosca") );
 		perros.add( new Perro(4, "txakur") );
-		perros.add( new Perro(5, "lagun") );
-		indice = 6;
+		perros.add( new Perro(5, "lagun") );indice = 6;
 		*/
+		
 	
 		//ahora cremaos los objetos desde el DAO, en lugar del arrayList:
 		try {
@@ -142,6 +142,7 @@ public class PerrosController extends HttpServlet {
 					mensaje = "No se puede adoptar este perro";
 				}
 			}
+		
 			
 			if (editar) {
 				//request.setAttribute("perroEditar", perro);
@@ -200,7 +201,8 @@ public class PerrosController extends HttpServlet {
 		if (id > 0) {
 			LOG.trace("Modificar datos del perro");
 			
-			Perro perro = null;
+			//Perro perro = null;
+			Perro perro = new Perro();
 			
 			/*
 			//buscamos el perro en el ArrayList			
@@ -233,6 +235,7 @@ public class PerrosController extends HttpServlet {
 			Perro p = new Perro();
 			p.setNombre(nombre);
 			p.setFoto(foto);
+			
 			//p.setId(indice);
 			//indice++; //incrementamos para el siguiente
 			
