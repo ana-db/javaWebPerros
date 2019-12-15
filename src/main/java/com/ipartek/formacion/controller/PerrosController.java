@@ -26,21 +26,9 @@ public class PerrosController extends HttpServlet {
 	private int indice = 0;
 	private String mensaje = "";
 	
+	//13/12/2019: ahora creamos los objetos desde el DAO, en lugar del arrayList:
     //private ArrayList<Perro> perros = new ArrayList<Perro>();
-	
 	private static ArrayPerroDAO dao = ArrayPerroDAO.getInstance(); 
-    
-   
-    //constructor para crear perros
-    /*
-	public PerrosController() {
-		super(); 
-		perros.add( new Perro("bubba") );
-		perros.add( new Perro("rataplan") );
-		perros.add( new Perro("mosca") );
-		perros.add( new Perro("txakur") );
-		perros.add( new Perro("lagun") );
-	} */
 	
 	
 	//ciclo de vida de un servlet: init, destroy y service:
@@ -59,7 +47,7 @@ public class PerrosController extends HttpServlet {
 		*/
 		
 	
-		//ahora cremaos los objetos desde el DAO, en lugar del arrayList:
+		//13/12/2019: ahora creamos los objetos desde el DAO, en lugar del arrayList:
 		try {
 			dao.create(new Perro("bubba"));
 			dao.create(new Perro("rataplan"));
@@ -93,7 +81,7 @@ public class PerrosController extends HttpServlet {
 		LOG.trace("se ejecuta después del doGet o doPost");
 		request.setAttribute("mensaje", mensaje);
 		//request.setAttribute("perros", perros);
-		request.setAttribute("perros", dao.getAll() ); //usamos el DAO que hemos creado en la capa modelo
+		request.setAttribute("perros", dao.getAll() ); //usamos el DAO que hemos creado en la capa modelo en lugar del ArrayList perros
 		request.getRequestDispatcher("perros.jsp").forward(request, response);
 	}
 	
@@ -214,7 +202,9 @@ public class PerrosController extends HttpServlet {
 			}
 			*/
 			
-			//modificamos los datos
+			
+			//modificamos los datos:
+			perro.setId(id); //faltaba incluir esta línea para solucionar el bug: después de modificar los datos de un perro, el id salía a 0 en todos
 			perro.setNombre(nombre);
 			perro.setFoto(foto);
 			
@@ -225,7 +215,7 @@ public class PerrosController extends HttpServlet {
 				mensaje = "Los datos no se han podido modificar";
 			}			
 			
-			// TODO arreglar error al modificar
+			// TO DO arreglar error al modificar --> resuelto con perro.setId(id);
 			
 		}
 		else {
